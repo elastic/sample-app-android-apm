@@ -1,29 +1,27 @@
 package co.elastic.apm.android.sample
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import co.elastic.apm.android.sample.databinding.FragmentSecondBinding
+import co.elastic.apm.android.sample.network.WeatherRestManager
+import co.elastic.apm.android.sample.network.data.ForecastResponse
+import kotlinx.coroutines.launch
 
-/**
- * A simple [Fragment] subclass as the second destination in the navigation.
- */
 class SecondFragment : Fragment() {
 
     private var _binding: FragmentSecondBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-
+    ): View {
         _binding = FragmentSecondBinding.inflate(inflater, container, false)
         return binding.root
 
@@ -32,9 +30,26 @@ class SecondFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        lifecycleScope.launch {
+            try {
+                updateTemperature(WeatherRestManager.getCurrentLondonWeather())
+            } catch (e: Exception) {
+                e.printStackTrace()
+                Toast.makeText(requireContext(), R.string.unknown_error_message, Toast.LENGTH_SHORT)
+                    .show()
+            }
+        }
+
         binding.buttonSecond.setOnClickListener {
             findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
         }
+    }
+
+    private fun updateTemperature(londonWeather: ForecastResponse) {
+        binding.txtDegreesCelsius.text = getString(
+            R.string.temperature_in_celsius,
+            londonWeather.currentWeather.temperature
+        )
     }
 
     override fun onDestroyView() {

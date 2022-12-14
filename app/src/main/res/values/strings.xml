@@ -9,5 +9,6 @@
 
     <string name="hello_first_fragment">"Click on the button below to see how London's temperature is right now!"</string>
     <string name="london_weather_title">London\'s temperature</string>
-    <string name="temperature_in_celsius">%s °C</string>
+    <string name="temperature_in_celsius">%.1f °C</string>
+    <string name="unknown_error_message">Something unexpected happened</string>
 </resources>
