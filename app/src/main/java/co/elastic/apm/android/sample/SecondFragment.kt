@@ -1,6 +1,8 @@
 package co.elastic.apm.android.sample
 
 import android.os.Bundle
+import android.text.Html
+import android.text.method.LinkMovementMethod
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,15 +26,14 @@ class SecondFragment : Fragment() {
     ): View {
         _binding = FragmentSecondBinding.inflate(inflater, container, false)
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         lifecycleScope.launch {
             try {
                 updateTemperature(WeatherRestManager.getCurrentLondonWeather())
+                showApiNotice()
             } catch (e: Exception) {
                 e.printStackTrace()
                 Toast.makeText(requireContext(), R.string.unknown_error_message, Toast.LENGTH_SHORT)
@@ -43,6 +44,11 @@ class SecondFragment : Fragment() {
         binding.buttonSecond.setOnClickListener {
             findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
         }
+    }
+
+    private fun showApiNotice() {
+        binding.txtApiNotice.movementMethod = LinkMovementMethod.getInstance()
+        binding.txtApiNotice.text = Html.fromHtml(getString(R.string.weather_api_notice_message))
     }
 
     private fun updateTemperature(londonWeather: ForecastResponse) {

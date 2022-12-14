@@ -11,4 +11,5 @@
     <string name="london_weather_title">London\'s temperature</string>
     <string name="temperature_in_celsius">%.1f °C</string>
     <string name="unknown_error_message">Something unexpected happened</string>
+    <string name="weather_api_notice_message">&lt;a href="https://open-meteo.com/">Weather data by Open-Meteo.com&lt;a/></string>
 </resources>
