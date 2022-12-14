@@ -37,8 +37,8 @@ android {
 }
 
 elasticApm {
-    serviceName = "weather-sample-app"
-    serverUrl = "http://10.0.2.2:8200"
+    serviceName = "weather-sample-app" // This is the name that this app will get in Kibana.
+    serverUrl = "http://10.0.2.2:8200" // Set this to your Elastic APM endpoint.
 //    secretToken = "my-apm-secret-token" // Uncomment and set it if this is your preferred auth method.
 }
 
