@@ -33,7 +33,7 @@
         android:layout_height="66dp"
         android:layout_marginTop="340dp"
         android:layout_marginBottom="82dp"
-        android:contentDescription="City name"
+        android:contentDescription="@string/city_name"
         android:spinnerMode="dropdown"
         app:layout_constraintBottom_toTopOf="@+id/button_first"
         app:layout_constraintEnd_toEndOf="parent"
