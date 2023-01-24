@@ -1,7 +1,6 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
-    id 'co.elastic.apm.android' version '0.1.0'
 }
 
 android {
@@ -34,16 +33,6 @@ android {
     buildFeatures {
         viewBinding true
     }
-}
-
-elasticApm {
-    serviceName = "weather-sample-app" // This is the name that this app will get in Kibana.
-    serverUrl = "https://aab7a192e0eb4636b7f2934245bae1ed.apm.us-west2.gcp.elastic-cloud.com:443"
-    secretToken = "Km7GN8RoRAF4feZ6kr"
-//    serverUrl = "https://48d80770585748a681a09354f3d01cc4.apm.us-west2.gcp.elastic-cloud.com:443"
-//    secretToken = "QwD2prnHlecthEO3Bm"
-//    serverUrl = "http://10.0.2.2:8200" // Set this to your Elastic APM endpoint.
-//    secretToken = "my-apm-secret-token" // Uncomment and set it if this is your preferred auth method.
 }
 
 dependencies {
