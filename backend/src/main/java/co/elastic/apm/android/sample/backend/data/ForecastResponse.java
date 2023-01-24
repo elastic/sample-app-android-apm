@@ -9,6 +9,10 @@ public class ForecastResponse {
     @JsonProperty("current_weather")
     CurrentWeatherResponse currentWeather;
 
+    public CurrentWeatherResponse getCurrentWeather() {
+        return currentWeather;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -20,9 +24,5 @@ public class ForecastResponse {
     @Override
     public int hashCode() {
         return Objects.hash(currentWeather);
-    }
-
-    public CurrentWeatherResponse getCurrentWeather() {
-        return currentWeather;
     }
 }

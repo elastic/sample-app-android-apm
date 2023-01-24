@@ -5,6 +5,10 @@ import java.util.Objects;
 public class CurrentWeatherResponse {
     double temperature;
 
+    public double getTemperature() {
+        return temperature;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -16,9 +20,5 @@ public class CurrentWeatherResponse {
     @Override
     public int hashCode() {
         return Objects.hash(temperature);
-    }
-
-    public double getTemperature() {
-        return temperature;
     }
 }
