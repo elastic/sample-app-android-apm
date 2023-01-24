@@ -9,12 +9,6 @@ targetCompatibility = JavaVersion.VERSION_11
 
 def elasticApmVersion = '1.35.0'
 
-configurations {
-    compileOnly {
-        extendsFrom annotationProcessor
-    }
-}
-
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation "co.elastic.apm:apm-agent-attach:$elasticApmVersion"
