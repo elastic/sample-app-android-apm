@@ -56,10 +56,10 @@ class SecondFragment : Fragment() {
         binding.txtApiNotice.text = Html.fromHtml(getString(R.string.weather_api_notice_message))
     }
 
-    private fun updateTemperature(londonWeather: ForecastResponse) {
+    private fun updateTemperature(response: ForecastResponse) {
         binding.txtDegreesCelsius.text = getString(
             R.string.temperature_in_celsius,
-            londonWeather.currentWeather.temperature
+            response.currentWeather.temperature
         )
     }
 
