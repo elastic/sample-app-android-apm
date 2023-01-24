@@ -1,7 +1,7 @@
 plugins {
-	id 'java'
-	id 'org.springframework.boot' version '2.7.6'
-	id 'io.spring.dependency-management' version '1.1.0'
+    id 'java'
+    id 'org.springframework.boot' version '2.7.6'
+    id 'io.spring.dependency-management' version '1.1.0'
 }
 
 group = 'co.elastic.apm.android.sample'
@@ -10,23 +10,19 @@ sourceCompatibility = '11'
 def elasticApmVersion = '1.35.0'
 
 configurations {
-	compileOnly {
-		extendsFrom annotationProcessor
-	}
-}
-
-repositories {
-	mavenCentral()
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation "co.elastic.apm:apm-agent-attach:$elasticApmVersion"
-	compileOnly 'org.projectlombok:lombok'
-	annotationProcessor 'org.projectlombok:lombok'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation "co.elastic.apm:apm-agent-attach:$elasticApmVersion"
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
 tasks.named('test') {
-	useJUnitPlatform()
+    useJUnitPlatform()
 }
