@@ -12,8 +12,6 @@ def elasticApmVersion = '1.35.0'
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation "co.elastic.apm:apm-agent-attach:$elasticApmVersion"
-    compileOnly 'org.projectlombok:lombok'
-    annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
