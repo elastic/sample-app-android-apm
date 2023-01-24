@@ -32,7 +32,7 @@ class SecondFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         lifecycleScope.launch {
             try {
-                val city = arguments?.getString("city") ?: "Berlin";
+                val city = arguments?.getString("city") ?: "Berlin"
                 binding.temperatureTitle.text = getString(
                     R.string.temperature_title,
                     city
