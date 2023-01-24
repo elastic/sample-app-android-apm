@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'co.elastic.apm.android' version '0.1.0'
 }
 
 android {
@@ -33,6 +34,12 @@ android {
     buildFeatures {
         viewBinding true
     }
+}
+
+elasticApm {
+    serviceName = "weather-sample-app"
+    serverUrl = "http://10.0.2.2:8200"
+//    secretToken = "my-apm-secret-token" // Uncomment and set it if this is your preferred auth method.
 }
 
 dependencies {
